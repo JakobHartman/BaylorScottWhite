@@ -26,7 +26,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import LearnReduxLinks from './src/components/LearnReduxLinks';
 import Header from './src/components/Header';
-import { Counter } from './src/features/counter/Counter';
+import { Users } from './src/features';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -45,7 +45,7 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
-            <Counter />
+            <Users />
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
