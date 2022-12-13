@@ -30,6 +30,11 @@ export const ContactModal = ({
     ...{ marginBottom: 5 },
   };
 
+  const mutatedAddressStyle = {
+    ...mutatedTextStyle,
+    ...styles.addressText,
+  };
+
   const getPadding = (amount: number) => {
     return { paddingBottom: amount };
   };
@@ -103,7 +108,7 @@ export const ContactModal = ({
                   style={styles.addressText}>{`${user.address.suite}`}</Text>
                 <Text
                   style={
-                    styles.addressText
+                    mutatedAddressStyle
                   }>{`${user.address.city} ${user.address.zipcode}`}</Text>
               </View>
               <View style={styles.infoIcon}>
