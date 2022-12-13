@@ -2,16 +2,22 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../../app/store';
 import { User } from '../../../types';
 
+export enum Status {
+  IDLE = 'idle',
+  LOADING = 'loading',
+  FAILED = 'failed',
+}
+
 export interface UserState {
   users: User[];
-  status: 'idle' | 'loading' | 'failed';
-  error?: Error | null;
+  status: Status;
+  error?: any;
 }
 
 const initialState: UserState = {
   users: [],
-  status: 'idle',
-  error: null,
+  status: Status.IDLE,
+  error: undefined,
 };
 
 export const fetchUsers = createAsyncThunk('get/getUsers', async () => {
@@ -25,6 +31,17 @@ export const userSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.users = action.payload;
+      state.status = Status.IDLE;
+    });
+
+    builder.addCase(fetchUsers.pending, state => {
+      state.status = Status.LOADING;
+    });
+
+    builder.addCase(fetchUsers.rejected, (state, action) => {
+      state.users = [];
+      state.status = Status.FAILED;
+      state.error = action.payload;
     });
   },
 });
