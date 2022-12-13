@@ -1,6 +1,29 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+  userList: {
+    height: '100%',
+  },
+  name: { fontWeight: 'bold', flex: 1, fontSize: 16 },
+  email: {
+    flex: 1,
+  },
+  userCard: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    borderBottomColor: 'black',
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    marginLeft: 10,
+    height: 75,
+    width: '90%',
+    justifyContent: 'space-evenly',
+    paddingTop: 10,
+  },
+  errorText: {
+    color: 'red',
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
