@@ -1,4 +1,5 @@
 import { Address } from './Address';
+import { Company } from './Company';
 
 export interface User {
   id: string;
@@ -7,7 +8,7 @@ export interface User {
   address: Address;
   phone: string;
   website: string;
-  companyName: string;
+  company: Company;
 
   username: string;
 }
